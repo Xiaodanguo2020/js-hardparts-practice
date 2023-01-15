@@ -268,24 +268,35 @@ function callTimes() {
 // /*** Uncomment these to check your work! ***/
 let myNewFunc1 = callTimes();
 let myNewFunc2 = callTimes();
-console.log(myNewFunc1())
-console.log(myNewFunc1())
-console.log(myNewFunc2())
-console.log(myNewFunc2())
+// console.log(myNewFunc1())
+// console.log(myNewFunc1())
+// console.log(myNewFunc2())
+// console.log(myNewFunc2())
 
 
 // CHALLENGE 15
 function roulette(num) {
+  let count = num
+  return function() {
+    num--
+    if (num > 0) {
+      return 'spin'
+    } else if (num === 0) {
+      return 'win'
+    } else {
+      return 'pick a number to play again'
+    }
+  }
 
 }
 
 // /*** Uncomment these to check your work! ***/
-// const play = roulette(3);
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'win'
-// console.log(play()); // => should log 'pick a number to play again'
-// console.log(play()); // => should log 'pick a number to play again'
+const play = roulette(3);
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'win'
+console.log(play()); // => should log 'pick a number to play again'
+console.log(play()); // => should log 'pick a number to play again'
 
 
 // CHALLENGE 16
