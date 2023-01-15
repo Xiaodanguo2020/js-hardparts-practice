@@ -237,14 +237,22 @@ function censor() {
 
 // CHALLENGE 13
 function createSecretHolder(secret) {
-
+  let holder = secret
+  return {
+    getSecret(){
+      return holder
+    },
+    setSecret(newSecret){
+      holder = newSecret
+    },
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
 // obj = createSecretHolder(5)
-// obj.getSecret() // => returns 5
+// console.log(obj.getSecret()) // => returns 5
 // obj.setSecret(2)
-// obj.getSecret() // => returns 2
+// console.log(obj.getSecret()) // => returns 2
 
 
 // CHALLENGE 14
