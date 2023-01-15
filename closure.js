@@ -257,16 +257,21 @@ function createSecretHolder(secret) {
 
 // CHALLENGE 14
 function callTimes() {
+  let timesCalled = 0
+  return function() {
+    timesCalled++
+    return timesCalled
+  }
 
 }
 
 // /*** Uncomment these to check your work! ***/
-// let myNewFunc1 = callTimes();
-// let myNewFunc2 = callTimes();
-// myNewFunc1(); // => 1
-// myNewFunc1(); // => 2
-// myNewFunc2(); // => 1
-// myNewFunc2(); // => 2
+let myNewFunc1 = callTimes();
+let myNewFunc2 = callTimes();
+console.log(myNewFunc1())
+console.log(myNewFunc1())
+console.log(myNewFunc2())
+console.log(myNewFunc2())
 
 
 // CHALLENGE 15
