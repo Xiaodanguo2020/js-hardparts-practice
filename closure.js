@@ -291,27 +291,38 @@ function roulette(num) {
 }
 
 // /*** Uncomment these to check your work! ***/
-const play = roulette(3);
-console.log(play()); // => should log 'spin'
-console.log(play()); // => should log 'spin'
-console.log(play()); // => should log 'win'
-console.log(play()); // => should log 'pick a number to play again'
-console.log(play()); // => should log 'pick a number to play again'
+// const play = roulette(3);
+// console.log(play()); // => should log 'spin'
+// console.log(play()); // => should log 'spin'
+// console.log(play()); // => should log 'win'
+// console.log(play()); // => should log 'pick a number to play again'
+// console.log(play()); // => should log 'pick a number to play again'
 
 
 // CHALLENGE 16
 function average() {
+  let inputs = []
+  return function(arg){
+    if (!arg && inputs.length === 0) {
+      return 0
+    } else if (typeof arg === 'number') {
+      inputs.push(arg)
+      return inputs.reduce((pre, cur)=>pre + cur/inputs.length,0)
+    } else if (!arg) {
+      return inputs.reduce((pre, cur)=>pre + cur/inputs.length,0)
+    }
+  }
 
 }
 
 // /*** Uncomment these to check your work! ***/
-// const avgSoFar = average();
-// console.log(avgSoFar()); // => should log 0
-// console.log(avgSoFar(4)); // => should log 4
-// console.log(avgSoFar(8)); // => should log 6
-// console.log(avgSoFar()); // => should log 6
-// console.log(avgSoFar(12)); // => should log 8
-// console.log(avgSoFar()); // => should log 8
+const avgSoFar = average();
+console.log(avgSoFar()); // => should log 0
+console.log(avgSoFar(4)); // => should log 4
+console.log(avgSoFar(8)); // => should log 6
+console.log(avgSoFar()); // => should log 6
+console.log(avgSoFar(12)); // => should log 8
+console.log(avgSoFar()); // => should log 8
 
 
 // CHALLENGE 17
