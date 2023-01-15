@@ -211,7 +211,21 @@ function dateStamp(func) {
 
 // CHALLENGE 12
 function censor() {
-
+  let changePairs = []
+  return function(...args) {
+    if (args.length === 2) {
+      changePairs.push(args)
+      return
+    } else if (args.length === 1) {
+      let newString = args[0]
+      for (const pair of changePairs) {
+        newString = newString.replace(pair[0], pair[1])
+      }
+      return newString
+    } else {
+      return
+    }
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
