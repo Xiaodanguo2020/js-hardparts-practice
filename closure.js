@@ -194,6 +194,12 @@ function defineFirstArg(func, arg) {
 
 // CHALLENGE 11
 function dateStamp(func) {
+  return function(...args){
+    return ({
+      date: new Date().toDateString(),
+      output: func(...args)
+    })
+  }
 
 }
 
