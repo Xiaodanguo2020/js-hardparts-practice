@@ -347,7 +347,21 @@ function makeFuncTester(arrOfTests) {
 
 // CHALLENGE 18
 function makeHistory(limit) {
-
+  let history = []
+  return function(str){
+    if (str === 'undo') {
+      if (history.length === 0) {
+        return 'nothing to undo'
+      } else {
+        return history.pop() + ' undone'
+      }
+    }
+    history.push(str)
+    if (history.length > limit) {
+      history.shift()
+    }
+    return str + ' done'
+  }
 }
 
 // /*** Uncomment these to check your work! ***/
