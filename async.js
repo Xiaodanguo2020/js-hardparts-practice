@@ -15,7 +15,7 @@ function testMe() {
 /* CHALLENGE 2 */
 
 function delayedGreet() {
-  // ADD CODE HERE
+  setTimeout(() => console.log('welcome'),3000)
 }
 // Uncomment the following line to check your work!
 // delayedGreet(); // should log (after 3 seconds): welcome
@@ -25,6 +25,8 @@ function delayedGreet() {
 
 function helloGoodbye() {
   // ADD CODE HERE
+  console.log('hello')
+  setTimeout(() => console.log('good bye'), 3000)
 }
 // Uncomment the following line to check your work!
 // helloGoodbye(); // should log: hello // should also log (after 3 seconds): good bye
