@@ -41,16 +41,25 @@ function brokenRecord() {
 	}, 1000)
 }
 // Uncomment the following line to check your work!
-brokenRecord(); // should log (every second): hi again
+// brokenRecord(); // should log (every second): hi again
 
 
 /* CHALLENGE 5 */
 
 function limitedRepeat() {
+  // because setInterval happen after delay. So adding first run.
+  console.log('hi')
+	const interval = setInterval(() => {
+		console.log('hi')
+	}, 1000)
+	setTimeout(() => {
+		clearInterval(interval)
+    console.log('clearInterval')
+	}, 5000)
   // ADD CODE HERE
 }
 // Uncomment the following line to check your work!
-// limitedRepeat(); // should log (every second, for 5 seconds): hi for now
+limitedRepeat(); // should log (every second, for 5 seconds): hi for now
 
 
 /* CHALLENGE 6 */
