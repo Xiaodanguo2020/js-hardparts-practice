@@ -74,18 +74,28 @@ function everyXsecsForYsecs(func, interval, duration) {
 function theEnd() {
   console.log('This is the end!');
 }
-everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+// everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
 
 
 /* CHALLENGE 7 */
 
 function delayCounter(target, wait) {
-
+  let current = 1
+  let interval = null
+  return function() {
+    interval = setInterval(() => {
+      console.log(current)
+      if (current === target) {
+        clearInterval(interval)
+      }
+      current++
+    }, wait)
+  }
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const countLogger = delayCounter(3, 1000)
-// countLogger();
+const countLogger = delayCounter(3, 1000)
+countLogger();
 // After 1 second, log 1
 // After 2 seconds, log 2
 // After 3 seconds, log 3
