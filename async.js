@@ -59,19 +59,22 @@ function limitedRepeat() {
   // ADD CODE HERE
 }
 // Uncomment the following line to check your work!
-limitedRepeat(); // should log (every second, for 5 seconds): hi for now
+// limitedRepeat(); // should log (every second, for 5 seconds): hi for now
 
 
 /* CHALLENGE 6 */
 
-function everyXsecsForYsecs() {
+function everyXsecsForYsecs(func, interval, duration) {
   // ADD CODE HERE
+  func()
+  const intervalPointer = setInterval(func, interval * 1000)
+  setTimeout(() => clearInterval(intervalPointer), duration * 1000)
 }
 // Uncomment the following lines to check your work!
-// function theEnd() {
-//   console.log('This is the end!');
-// }
-// everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+function theEnd() {
+  console.log('This is the end!');
+}
+everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
 
 
 /* CHALLENGE 7 */
