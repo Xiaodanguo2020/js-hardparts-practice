@@ -110,8 +110,8 @@ function promised (val) {
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-const createPromise = promised('wait for it...');
-createPromise.then((val) => console.log(val));
+// const createPromise = promised('wait for it...');
+// createPromise.then((val) => console.log(val));
 // will log "wait for it..." to the console after 2 seconds
 
 /* CHALLENGE 9 */
@@ -119,18 +119,32 @@ createPromise.then((val) => console.log(val));
 class SecondClock {
   constructor(cb) {
     // ADD CODE HERE
+    this.cb = cb
+    this.seconds = 0
+    this.interval = null
+  }
+  start() {
+    this.interval = setInterval(() => {
+      this.seconds++
+      if (this.seconds === 61) this.seconds = 1
+      this.cb(this.seconds)
+    }, 1000)
+  }
+  reset() {
+    clearInterval(this.interval)
+    this.seconds = 0
   }
   // ADD METHODS HERE
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const clock = new SecondClock((val) => { console.log(val) });
-// console.log("Started Clock.");
-// clock.start();
-// setTimeout(() => {
-//     clock.reset();
-//     console.log("Stopped Clock after 6 seconds.");
-// }, 6000);
+const clock = new SecondClock((val) => { console.log(val) });
+console.log("Started Clock.");
+clock.start();
+setTimeout(() => {
+    clock.reset();
+    console.log("Stopped Clock after 6 seconds.");
+}, 6000);
 
 /* CHALLENGE 10 */
 
