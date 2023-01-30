@@ -138,25 +138,35 @@ class SecondClock {
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-const clock = new SecondClock((val) => { console.log(val) });
-console.log("Started Clock.");
-clock.start();
-setTimeout(() => {
-    clock.reset();
-    console.log("Stopped Clock after 6 seconds.");
-}, 6000);
+// const clock = new SecondClock((val) => { console.log(val) });
+// console.log("Started Clock.");
+// clock.start();
+// setTimeout(() => {
+//     clock.reset();
+//     console.log("Stopped Clock after 6 seconds.");
+// }, 6000);
 
 /* CHALLENGE 10 */
 
 function debounce(callback, interval) {
+  let lastTime = null
+  return function(...args){
+    const currentTime = new Date()
+    if (!lastTime || (currentTime - lastTime) > interval) {
+      lastTime = currentTime
+      return callback(...args)
+    }
+    lastTime = currentTime
+    return
+  }
   // ADD CODE HERE
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// function giveHi() { return 'hi'; }
-// const giveHiSometimes = debounce(giveHi, 3000);
-// console.log(giveHiSometimes()); // -> 'hi'
-// setTimeout(function() { console.log(giveHiSometimes()); }, 2000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 4000); // -> undefined
-// setTimeout(function() { console.log(giveHiSometimes()); }, 8000); // -> 'hi'
+function giveHi() { return 'hi'; }
+const giveHiSometimes = debounce(giveHi, 3000);
+console.log(giveHiSometimes()); // -> 'hi'
+setTimeout(function() { console.log(giveHiSometimes()); }, 2000); // -> undefined
+setTimeout(function() { console.log(giveHiSometimes()); }, 4000); // -> undefined
+setTimeout(function() { console.log(giveHiSometimes()); }, 8000); // -> 'hi'
 
