@@ -94,8 +94,8 @@ function delayCounter(target, wait) {
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-const countLogger = delayCounter(3, 1000)
-countLogger();
+// const countLogger = delayCounter(3, 1000)
+// countLogger();
 // After 1 second, log 1
 // After 2 seconds, log 2
 // After 3 seconds, log 3
@@ -104,11 +104,14 @@ countLogger();
 
 function promised (val) {
   // ADD CODE HERE
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(val), 2000)
+  })
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const createPromise = promised('wait for it...');
-// createPromise.then((val) => console.log(val));
+const createPromise = promised('wait for it...');
+createPromise.then((val) => console.log(val));
 // will log "wait for it..." to the console after 2 seconds
 
 /* CHALLENGE 9 */
