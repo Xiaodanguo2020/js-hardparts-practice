@@ -1,0 +1,20 @@
+{
+  "name": "js-hardparts-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-xiaodan:Xiaodanguo2020/js-hardparts-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "jest": "^29.4.1"
+  }
+}
