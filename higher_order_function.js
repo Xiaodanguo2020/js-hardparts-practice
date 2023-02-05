@@ -387,7 +387,7 @@ function isOdd(num) {
 
 // Challenge 24
 function myForEach(array, callback) {
-
+  return forEach(array, callback)
 }
 
 let sum = 0;
