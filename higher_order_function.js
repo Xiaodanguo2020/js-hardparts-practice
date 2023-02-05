@@ -119,7 +119,11 @@ function objOfMatches(array1, array2, callback) {
 
 // Challenge 10
 function multiMap(arrVals, arrCallbacks) {
-
+  let obj = {}
+  for(let i = 0; i < arrVals.length; i++) {
+    obj[arrVals[i]] = map(arrCallbacks, (cb) => cb(arrVals[i]))
+  }
+  return obj
 }
 
 // console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
@@ -128,7 +132,13 @@ function multiMap(arrVals, arrCallbacks) {
 
 // Challenge 11
 function objectFilter(obj, callback) {
-
+  let newObj = {}
+  for(let key in obj) {
+    if(callback(key) === obj[key]) {
+      newObj[key] = obj[key]
+    }
+  }
+  return newObj
 }
 
 // const cities = {
@@ -141,7 +151,19 @@ function objectFilter(obj, callback) {
 
 // Challenge 12
 function majority(array, callback) {
-
+  let count = 0
+  for(let i = 0; i < array.length; i++) {
+    if(callback(array[i])) {
+      count++
+    }
+    if (count > array.length / 2) {
+      return true
+    }
+    if (i + 1 - count > array.length / 2) {
+      return false
+    }
+  }
+  return false
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -152,13 +174,22 @@ function majority(array, callback) {
 
 // Challenge 13
 function prioritize(array, callback) {
-
+  let prioritized = []
+  let rest = []
+  for(let i = 0; i < array.length; i++) {
+    if(callback(array[i])) {
+      prioritized.push(array[i])
+    } else {
+      rest.push(array[i])
+    }
+  }
+  return prioritized.concat(rest)
 }
 
 // /*** Uncomment these to check your work! ***/
 // const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
 // console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
-['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
+// ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
 
 
 // Challenge 14
