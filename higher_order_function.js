@@ -299,10 +299,12 @@ function rating(arrOfFuncs, value) {
 
 // Challenge 20
 function pipe(arrOfFuncs, value) {
-
+  return reduce(arrOfFuncs, function(acc, func) {
+    return func(acc)
+  } , value)
 }
 
-// /*** Uncomment these to check your work! ***/
+// // /*** Uncomment these to check your work! ***/
 // const capitalize = str => str.toUpperCase();
 // const addLowerCase = str => str + str.toLowerCase();
 // const repeat = str => str + str;
@@ -312,10 +314,18 @@ function pipe(arrOfFuncs, value) {
 
 // Challenge 21
 function highestFunc(objOfFuncs, subject) {
-
+  let max = 0
+  let key = ''
+  for(let func in objOfFuncs) {
+    if(objOfFuncs[func](subject) > max) {
+      max = objOfFuncs[func](subject)
+      key = func
+    }
+  }
+  return key
 }
 
-// /*** Uncomment these to check your work! ***/
+/*** Uncomment these to check your work! ***/
 // const groupOfFuncs = {};
 // groupOfFuncs.double = n => n * 2;
 // groupOfFuncs.addTen = n => n + 10;
