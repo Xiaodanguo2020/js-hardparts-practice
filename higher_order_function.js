@@ -278,7 +278,13 @@ function objFilter(obj, callback) {
 
 // Challenge 19
 function rating(arrOfFuncs, value) {
-
+  let count = 0
+  for(let i = 0; i < arrOfFuncs.length; i++) {
+    if(arrOfFuncs[i](value)) {
+      count++
+    }
+  }
+  return count / arrOfFuncs.length * 100
 }
 
 // /*** Uncomment these to check your work! ***/
