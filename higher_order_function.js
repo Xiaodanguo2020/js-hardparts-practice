@@ -194,7 +194,15 @@ function prioritize(array, callback) {
 
 // Challenge 14
 function countBy(array, callback) {
-
+  return reduce(array, function(acc, num) {
+    let key = callback(num)
+    if(!acc[key]) {
+      acc[key] = 1
+    } else {
+      acc[key]++
+    }
+    return acc
+  }, {})
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -206,7 +214,15 @@ function countBy(array, callback) {
 
 // Challenge 15
 function groupBy(array, callback) {
-
+  return reduce(array, function(acc, element) {
+    let key = callback(element)
+    if(!acc[key]) {
+      acc[key] = [element]
+    } else {
+      acc[key].push(element)
+    }
+    return acc
+  }, {})
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -217,7 +233,13 @@ function groupBy(array, callback) {
 
 // Challenge 16
 function goodKeys(obj, callback) {
-
+  let arr = []
+  for(let key in obj) {
+    if(callback(obj[key])) {
+      arr.push(key)
+    }
+  }
+  return arr
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -228,7 +250,7 @@ function goodKeys(obj, callback) {
 
 // Challenge 17
 function commutative(func1, func2, value) {
-
+  return func1(func2(value)) === func2(func1(value))
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -242,7 +264,7 @@ function commutative(func1, func2, value) {
 
 // Challenge 18
 function objFilter(obj, callback) {
-
+  return objectFilter(obj, callback)
 }
 
 // /*** Uncomment these to check your work! ***/
